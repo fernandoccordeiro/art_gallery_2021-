@@ -32,9 +32,9 @@ cd /opt/current-deployment
 echo "DEBUG: Adding ENV variables from Parameter Store"
 export RDS_PORT=5432
 export RDS_DB_NAME="postgres"
-export RDS_PASSWORD=$(aws ssm get-parameters --region us-east-1 --names CodeDeployPostgresPassword --with-decryption --query Parameters[0].Value)
-export RDS_USERNAME=$(aws ssm get-parameters --region us-east-1 --names CodeDeployPostgresUsername --with-decryption --query Parameters[0].Value)
-export RDS_HOSTNAME=$(aws ssm get-parameters --region us-east-1 --names CodeDeployPostgresEndpoint --with-decryption --query Parameters[0].Value)
+export RDS_PASSWORD=$(aws ssm get-parameters --region sa-east-1 --names CodeDeployPostgresPassword --with-decryption --query Parameters[0].Value)
+export RDS_USERNAME=$(aws ssm get-parameters --region sa-east-1 --names CodeDeployPostgresUsername --with-decryption --query Parameters[0].Value)
+export RDS_HOSTNAME=$(aws ssm get-parameters --region sa-east-1 --names CodeDeployPostgresEndpoint --with-decryption --query Parameters[0].Value)
 
 echo "DEBUG: Generating a secret key base value"
 export SECRET_KEY_BASE=$(bundle exec rake secret)
